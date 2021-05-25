@@ -1,5 +1,4 @@
 public class IterativeLongComputation {
-
     public static long getFibonacci(long n){
         long previous = 0;
         long result = 1;
@@ -22,6 +21,5 @@ public class IterativeLongComputation {
     public static void main(String[] args) {
         System.out.println("Maksymalna poprawna silnia n=20: " + getFactorial(20));
         System.out.println("Maksymalny poprawny wyraz ciągu Fibonacciego n=92: " + getFibonacci(92));
-
     }
 }
