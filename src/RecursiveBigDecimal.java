@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 
 public class RecursiveBigDecimal {
-    public BigDecimal ciagFibonacciego(int index) throws Exception {
+    public static BigDecimal getFibonacci(int index) throws Exception {
         if (index == 0)
             return new BigDecimal(0);
         else if (index == 1)
@@ -13,7 +13,7 @@ public class RecursiveBigDecimal {
             return new BigDecimal(-1);
     }
 
-    private BigDecimal fibo(int target_index, int current_index, BigDecimal prev, BigDecimal prevprev) throws Exception{
+    private static BigDecimal fibo(int target_index, int current_index, BigDecimal prev, BigDecimal prevprev) throws Exception{
         if (current_index == target_index){
             return prev;
         }
@@ -25,11 +25,11 @@ public class RecursiveBigDecimal {
         }
     }
 
-    public BigDecimal silnia(int index) throws Exception {
-        return liczSilnie(index, 1, BigDecimal.ONE);
+    public static BigDecimal getFactorial(int index) throws Exception {
+        return silnia(index, 1, BigDecimal.ONE);
     }
 
-    private BigDecimal liczSilnie(int target_index, int current_index, BigDecimal value) throws Exception{
+    private static BigDecimal silnia(int target_index, int current_index, BigDecimal value) throws Exception{
         if (current_index == target_index){
             return value;
         }
@@ -37,7 +37,7 @@ public class RecursiveBigDecimal {
             current_index++;
             BigDecimal result = value.multiply(new BigDecimal(current_index));
 
-            return liczSilnie(target_index, current_index, result);
+            return silnia(target_index, current_index, result);
         }
     }
 }
