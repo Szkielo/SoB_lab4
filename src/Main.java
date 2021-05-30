@@ -17,37 +17,24 @@ public class Main {
             BigInteger factorial_b = IterativeBigIntegerComputation.getFactorial(silnia);
             long factorial_c = IterativeLongComputation.getFactorial(silnia);
 
-            if (fibonacci_a.equals(fibonacci_b)) {
-                System.out.println(fibonacci_a);
-            }
-            else if (fibonacci_a.equals(fibonacci_c)) {
-                System.out.println(fibonacci_a);
-            }
-            else if (fibonacci_b.equals(fibonacci_c)) {
-                System.out.println(fibonacci_b);
-            }
-            else {
-                System.out.println("none are matching");
-            }
-
-            if (factorial_a.equals(factorial_b)) {
-                System.out.println(factorial_a);
-            }
-            else if (factorial_a.equals(factorial_c)) {
-                System.out.println(factorial_a);
-            }
-            else if (factorial_b.equals(factorial_c)) {
-                System.out.println(factorial_b);
-            }
-            else {
-                System.out.println("none are matching");
-            }
-
-
+            voting("fibobacci(" + fibo + ") = ", fibonacci_a, fibonacci_b, fibonacci_c);
+            voting("factorial(" + silnia + ") = ", factorial_a, factorial_b, factorial_c);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
-
+    private static void voting(String message, BigDecimal fibonacci_a, BigInteger fibonacci_b, long fibonacci_c) {
+        if (fibonacci_a.compareTo(new BigDecimal(fibonacci_b)) == 0) {
+            System.out.println(message + fibonacci_a);
+        }
+        else if (fibonacci_a.compareTo(new BigDecimal(fibonacci_c)) == 0) {
+            System.out.println(message + fibonacci_a);
+        }
+        else if (new BigDecimal(fibonacci_b).compareTo(new BigDecimal(fibonacci_c)) == 0) {
+            System.out.println(message + fibonacci_b);
+        } else {
+            System.out.println(message + "[error]");
+        }
     }
 }
