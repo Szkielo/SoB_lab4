@@ -40,4 +40,9 @@ public class RecursiveBigDecimal {
             return silnia(target_index, current_index, result);
         }
     }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println("silnia: " + getFactorial(11000));
+        System.out.println("fibo: " + getFibonacci(11500));
+    }
 }
