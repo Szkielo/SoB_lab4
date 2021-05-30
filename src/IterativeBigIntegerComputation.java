@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigInteger;
 
 public class IterativeBigIntegerComputation {
@@ -21,7 +24,18 @@ public class IterativeBigIntegerComputation {
     }
 
     public static void main(String[] args) {
-        System.out.println("Maksymalna poprawna silnia n=1000000: " + getFactorial(1000000));
-        System.out.println("Maksymalny poprawny wyraz ciągu Fibonacciego n=1000000: " + getFibonacci(1000000));
+//        System.out.println("Maksymalna poprawna silnia n=1000000: " + getFactorial(1000000));
+//        System.out.println("Maksymalny poprawny wyraz ciągu Fibonacciego n=1000000: " + getFibonacci(1000000));
+        BufferedWriter writer;
+        try {
+            writer = new BufferedWriter(new FileWriter("out.txt"));
+            writer.write(getFactorial(1000000).toString());
+            writer.write("\n");
+            writer.write(getFibonacci(1000000).toString());
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

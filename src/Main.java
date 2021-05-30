@@ -5,8 +5,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int fibo = 1000;
-        int silnia = 100;
+//        int fibo = 15000;
+//        int silnia = 12000;
+
+//        int fibo = 12000;
+//        int silnia = 12000;
+
+//        int fibo = 9000;
+//        int silnia = 9000;
+
+//        int fibo = 93;
+//        int silnia = 21;
+
+        int fibo = 30;
+        int silnia = 15;
 
         try {
             BigDecimal fibonacci_a = RecursiveBigDecimal.getFibonacci(fibo);
@@ -17,7 +29,7 @@ public class Main {
             BigInteger factorial_b = IterativeBigIntegerComputation.getFactorial(silnia);
             long factorial_c = IterativeLongComputation.getFactorial(silnia);
 
-            voting("fibobacci(" + fibo + ") = ", fibonacci_a, fibonacci_b, fibonacci_c);
+            voting("fibonacci(" + fibo + ") = ", fibonacci_a, fibonacci_b, fibonacci_c);
             voting("factorial(" + silnia + ") = ", factorial_a, factorial_b, factorial_c);
         } catch (Exception e) {
             e.printStackTrace();
@@ -25,6 +37,11 @@ public class Main {
     }
 
     private static void voting(String message, BigDecimal fibonacci_a, BigInteger fibonacci_b, long fibonacci_c) {
+        System.out.println(message + "(BigDecimal) " + fibonacci_a);
+        System.out.println(message + "(BigInteger) " + fibonacci_b);
+        System.out.println(message + "(long) " + fibonacci_c);
+
+
         if (fibonacci_a.compareTo(new BigDecimal(fibonacci_b)) == 0) {
             System.out.println(message + fibonacci_a);
         }

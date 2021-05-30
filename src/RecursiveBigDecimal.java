@@ -7,10 +7,14 @@ public class RecursiveBigDecimal {
         else if (index == 1)
             return new BigDecimal(1);
         else if (index > 1) {
-            return fibo(index, 1, BigDecimal.ONE, BigDecimal.ZERO);
-        }
-        else
+            try {
+                return fibo(index, 1, BigDecimal.ONE, BigDecimal.ZERO);
+            } catch (StackOverflowError err) {
+                return BigDecimal.valueOf(-1);
+            }
+        } else {
             return new BigDecimal(-1);
+        }
     }
 
     private static BigDecimal fibo(int target_index, int current_index, BigDecimal prev, BigDecimal prevprev) throws Exception{
@@ -25,11 +29,15 @@ public class RecursiveBigDecimal {
         }
     }
 
-    public static BigDecimal getFactorial(int index) throws Exception {
-        return silnia(index, 1, BigDecimal.ONE);
+    public static BigDecimal getFactorial(int index) {
+        try {
+            return silnia(index, 1, BigDecimal.ONE);
+        } catch (StackOverflowError err) {
+            return BigDecimal.valueOf(-1);
+        }
     }
 
-    private static BigDecimal silnia(int target_index, int current_index, BigDecimal value) throws Exception{
+    private static BigDecimal silnia(int target_index, int current_index, BigDecimal value) throws StackOverflowError {
         if (current_index == target_index){
             return value;
         }
