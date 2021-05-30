@@ -2,6 +2,7 @@ public class IterativeLongComputation {
     public static long getFibonacci(long n){
         long previous = 0;
         long result = 1;
+        if(n == 0) return 0;
         for (long i = 2; i <= n; i++) {
             long temp = result + previous;
             previous = result;
